@@ -6,7 +6,7 @@
 	"source": {
 		"include": [".", "README.md", "package.json", "test/"],
 		"includePattern": ".js$",
-		"excludePattern": "(imed-template/node_modules/|docs|out|DEPRECATED|_template)"
+		"excludePattern": "(node-ifconfig.me/node_modules/|docs|out|DEPRECATED|_template)"
 	},
 	"plugins": [
 		"plugins/markdown"
@@ -23,6 +23,6 @@
 		"private": true,
 		"recurse": true,
 		"template": "./node_modules/minami",
-		"title": "@imed.ch/imed-template"
+		"title": "@imed.ch/node-ifconfig.me"
 	}
 }

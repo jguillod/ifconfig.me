@@ -1,7 +1,7 @@
 {
-	"name": "@imed.ch/imed-template",
-	"version": "0.2.1",
-	"description": "my NodeJS module template",
+	"name": "@imed.ch/node-ifconfig.me",
+	"version": "0.8.0",
+	"description": "my NodeJS module to retrieve ip_addr from ifconfig.me with promise",
 	"main": "index.js",
 	"scripts": {
 		"build": "npm test && npm run generate-docs",
@@ -9,27 +9,28 @@
 		"generate-docs": "jsdoc --configure jsdoc.json --verbose",
 		"show-docs": "node docs/index",
 		"coverage": "nyc report --reporter=text-lcov | coveralls",
-		"test": "nyc mocha"
+		"test": "nyc mocha --timeout 5000"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/jguillod/imed-template.git"
+		"url": "git+https://github.com/jguillod/node-ifconfig.me.git"
 	},
 	"keywords": [
 		"template",
 		"nodejs"
 	],
-	"author": "Joël F Guillod <joel.guillod@imed.ch> (http://imed.ch)",
+	"author": "Joël F Guillod http://imed.ch",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/jguillod/imed-template/issues"
+		"url": "https://github.com/jguillod/node-ifconfig.me/issues"
 	},
-	"homepage": "https://github.com/jguillod/imed-template#readme",
+	"homepage": "https://github.com/jguillod/node-ifconfig.me#readme",
 	"devDependencies": {
 		"chai": "4.2.0",
 		"coveralls": "3.0.5",
 		"minami": "1.2.3",
 		"mocha": "6.1.4",
-		"nyc": "14.1.1"
+		"nyc": "14.1.1",
+		"open": "^6.4.0"
 	}
 }

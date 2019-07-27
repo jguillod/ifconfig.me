@@ -1,60 +1,43 @@
-[![Join the chat at https://gitter.im/imed-template/community](https://badges.gitter.im/imed-template/community.svg)](https://gitter.im/imed-template?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![NPM Version](https://img.shields.io/npm/v/@imed.ch/imed-template.svg)](https://npmjs.org/package/@imed.ch/imed-template)
-[![Dependency Status](https://david-dm.org/jguillod/imed-template.svg?style=flat)](https://david-dm.org/jguillod/imed-template)
-[![devDependency Status](https://img.shields.io/david/dev/jguillod/imed-template.svg?style=flat)](https://david-dm.org/jguillod/imed-template#info=devDependencies)
-[![Build Status](https://travis-ci.com/jguillod/imed-template.svg?branch=master)](https://travis-ci.com/jguillod/imed-template)
-[![Coverage Status](https://coveralls.io/repos/github/jguillod/imed-template/badge.svg?branch=master)](https://coveralls.io/github/jguillod/imed-template?branch=master)
-[![NPM](https://img.shields.io/github/license/jguillod/imed-template.svg)](LICENSE)
-
-[![Backers](https://opencollective.com/imed-template/backers/badge.svg)](#BACKERS)
-[![Sponsors](https://opencollective.com/imed-template/sponsors/badge.svg)](#SPONSORS)
+[![NPM Version](https://img.shields.io/npm/v/@imed.ch/node-ifconfig.me.svg)](https://npmjs.org/package/@imed.ch/node-ifconfig.me)
+[![Dependency Status](https://david-dm.org/jguillod/node-ifconfig.me.svg?style=flat)](https://david-dm.org/jguillod/node-ifconfig.me)
+[![devDependency Status](https://img.shields.io/david/dev/jguillod/node-ifconfig.me.svg?style=flat)](https://david-dm.org/jguillod/node-ifconfig.me#info=devDependencies)
+[![Build Status](https://travis-ci.com/jguillod/node-ifconfig.me.svg?branch=master)](https://travis-ci.com/jguillod/node-ifconfig.me)
+[![Coverage Status](https://coveralls.io/repos/github/jguillod/node-ifconfig.me/badge.svg?branch=master)](https://coveralls.io/github/jguillod/node-ifconfig.me?branch=master)
+[![NPM](https://img.shields.io/github/license/jguillod/node-ifconfig.me.svg)](LICENSE)
 
 
-
-# imed-template #
-
-
-> some template for nodejs module
-
-Follow these steps&nbsp;:
-
-1. Click on "**Use this Template**" button on the [main page repository](https://github.com/jguillod/imed-template) and create a new repository from imed-template.
-
-2. Clone your own repository&nbsp;:
-
-		git clone https://github.com/<username>/<module-name>.git
+# node-ifconfig.me #
 
 
-	> **Now edit the project with your favorite editor and do&nbsp;:&nbsp;...**
-
-3. Find/Replace "**imed-template**" with your own npm **"*module-name*"**, e.g. in&nbsp;:
-
-	- `index.js`
-	- `jsdoc.json`
-	- `package.json`
-	- `README.md`
-
-4. Find/Replace **"@imed.ch"** with your own npm **"*scope*"**, if you dont have a scope, replace **"@imed.ch/"** (suffixed with slash) with **""**, e.g. in&nbsp;:
-
-	- `jsdoc.json`
-	- `package.json`
-	- `README.md`
-
-5. Find/Replace **"jguillod"** with your own git **"*username*"**, e.g. in&nbsp;:
-
-	- `package.json`
-	- `README.md`
-
-6. Now code your module, commit and push to your git repository.
-
+> A nodejs module with promise to GET [http://ifconfig.me/all.json](http://ifconfig.me/all.json).
 
 ## Install ##
 
-	npm i -S imed-template
+	npm i -S @imed.ch/node-ifconfig.me
 
 ## Usage ##
 
-TODO
+    var ifconfigme = require('node-ifconfig.me');
+	// ...
+
+	async function useit(){
+		var ip_addr = ifconfigme.ip_addr || (await ifconfigme.export.get).ip_addr || ifconfigme.error;
+		// or
+		ifconfigme.get.then(data => console.log(`my ip is ${data.ip_addr}`)).catch(err => console.error('oops! an error occured', err));
+	}
+	
+	useit();
+	// =>	Promise {
+	// 		… }
+	// 		my ip is 91.170.67.133
+
+	ifconfigme.ready((err, result) => { console.log('ip_addr =', result.ip_addr)})
+	
+	// … later
+	console.log('IP :', ifconfigme.ip_addr);
+	console.log('Remote Host :', ifconfigme.remote_host);
+	console.log('Result :', ifconfigme.all);
+	
 
 ## Tests ##
 
@@ -69,21 +52,9 @@ will generate the documentation and open its `index.html` file. It's a shortcut 
 	npm run generate-docs
 	npm run show-docs
 
-If the index.html file does not show in your browser, edit `package.json` file and see if version number should be updated in `scripts["show-docs"]`, or open file in `./docs/imed-template/<version>/index.html` (e.g. `./docs/imed-template/0.1.0/index.html`).
+If the index.html file does not show in your browser, edit `package.json` file and see if version number should be updated in `scripts["show-docs"]`, or open file in `./docs/node-ifconfig.me/<version>/index.html` (e.g. `./docs/node-ifconfig.me/0.1.0/index.html`).
 
 ## Release History ##
 
-* 0.1.0 base template
-  --Wed Jul 17 19:33:38 CEST 2019
-
-
-## BACKERS ##
-
-Find **imed-template** helpful? Become a [backer](https://opencollective.com/jguillod#support) and support **imed-template** with a monthly donation.
-
-## SPONSORS ##
-
-Use **imed-template** at Work? Ask your manager or marketing team if they'd help [support](https://opencollective.com/jguillod#support) our project. Your company's logo will also be displayed on [npmjs.com](http://npmjs.com/package/@imed.ch/imed-template) and our [GitHub repository](https://github.com/jguillod/imed-template#sponsors).
-
-
-
+* 0.8.1 first npm release, main module but missing tests
+  --Sun Jul 28 01:45:18 CEST 2019
