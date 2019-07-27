@@ -56,5 +56,7 @@ If the index.html file does not show in your browser, edit `package.json` file a
 
 ## Release History ##
 
+* 0.8.2 README update
+  --Sun Jul 28 01:57:48 CEST 2019
 * 0.8.1 first npm release, main module but missing tests
   --Sun Jul 28 01:45:18 CEST 2019
