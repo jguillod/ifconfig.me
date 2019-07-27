@@ -56,7 +56,7 @@ function cloneResult(){
  * Get the external network configuration using ifconfig.me
  * @module node-ifconfig
  * @example <caption>Example usage of module</caption>
- * var module = require('node-ifconfig.me');
+ * var module = require('@imed.ch/node-ifconfig.me');
  * var ip_addr = module.ip_addr || (await module.ready()).ip_addr || module.error;
  * // or
  * module.get.then(data => console.log(`my ip is ${data.ip_addr}`)).catch(err => console.error('oops! an error occured', err));
@@ -74,7 +74,7 @@ module.exports = {
 	/**
 	 * ready() function
 	 * @example <caption>Example usage of ready(cb)</caption>
-	 * var module = require('node-ifconfig.me');
+	 * var module = require('@imed.ch/node-ifconfig.me');
 	 * var ip = (await module.ready()).ip_addr; // or
 	 * module.ready((err, result) => { console.log('ip_addr =', result.ip_addr)})
 	 * @async

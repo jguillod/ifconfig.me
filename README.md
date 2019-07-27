@@ -17,7 +17,7 @@
 
 ## Usage ##
 
-    var ifconfigme = require('node-ifconfig.me');
+    var ifconfigme = require('@imed.ch/node-ifconfig.me');
 	// ...
 
 	async function useit(){
