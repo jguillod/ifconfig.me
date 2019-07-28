@@ -1,7 +1,7 @@
 [![NPM Version](https://img.shields.io/npm/v/@imed.ch/node-ifconfig.me.svg)](https://npmjs.org/package/@imed.ch/node-ifconfig.me)
 [![Dependency Status](https://david-dm.org/jguillod/node-ifconfig.me.svg?style=flat)](https://david-dm.org/jguillod/node-ifconfig.me)
 [![devDependency Status](https://img.shields.io/david/dev/jguillod/node-ifconfig.me.svg?style=flat)](https://david-dm.org/jguillod/node-ifconfig.me#info=devDependencies)
-[![Build Status](https://travis-ci.com/jguillod/ifconfig.me.svg?branch=master)](https://travis-ci.com/jguillod/ifconfig.me)
+[![Build Status](https://travis-ci.com/jguillod/node-ifconfig.me.svg?branch=master)](https://travis-ci.com/jguillod/node-ifconfig.me)
 [![Coverage Status](https://coveralls.io/repos/github/jguillod/node-ifconfig.me/badge.svg?branch=master)](https://coveralls.io/github/jguillod/node-ifconfig.me?branch=master)
 [![NPM](https://img.shields.io/github/license/jguillod/node-ifconfig.me.svg)](LICENSE)
 
