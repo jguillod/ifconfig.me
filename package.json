@@ -1,6 +1,6 @@
 {
 	"name": "@imed.ch/node-ifconfig.me",
-	"version": "0.8.3",
+	"version": "0.8.4",
 	"description": "my NodeJS module to retrieve ip_addr from ifconfig.me with promise",
 	"main": "index.js",
 	"scripts": {
