@@ -29,7 +29,7 @@
 	useit();
 	// =>	Promise {
 	// 		… }
-	// 		my ip is 91.170.67.133
+	// 		my ip is 191.17.6.11
 
 	ifconfigme.ready((err, result) => { console.log('ip_addr =', result.ip_addr)})
 	
