@@ -17,26 +17,35 @@
 
 ## Usage ##
 
-    var ifconfigme = require('@imed.ch/node-ifconfig.me');
-	// ...
+    const ifconfigme = require('@imed.ch/node-ifconfig.me');
 
 	async function useit(){
 		var ip_addr = ifconfigme.ip_addr || (await ifconfigme.export.get).ip_addr || ifconfigme.error;
-		// or
-		ifconfigme.get.then(data => console.log(`my ip is ${data.ip_addr}`)).catch(err => console.error('oops! an error occured', err));
+		console.log('my ip is', ip_addr);
 	}
 	
-	useit();
-	// =>	Promise {
-	// 		… }
-	// 		my ip is 191.17.6.11
+	setTimeout(useit, 1);
+	// =>	my ip is 191.17.6.11
 
-	ifconfigme.ready((err, result) => { console.log('ip_addr =', result.ip_addr)})
+
+or
+
+	ifconfigme.ready((err, result) => { console.log('ip_addr =', result.ip_addr, '\ntimestamp =', result.timestamp)})
+	// =>	my ip = 191.17.6.11
+	//		timestamp = 2019-07-28T07:16:27.008Z
 	
-	// … later
-	console.log('IP :', ifconfigme.ip_addr);
-	console.log('Remote Host :', ifconfigme.remote_host);
-	console.log('Result :', ifconfigme.all);
+… later
+
+	console.log('IP :', ifconfigme.ip_addr); // => IP : 91.170.67.13
+	console.log('Remote Host :', ifconfigme.remote_host); // => Remote Host : unavailable
+	console.log('Result :', ifconfigme.all); // => { ip_addr: '191.17.6.11', ... timestamp: 2019-07-28T07:16:27.008Z }
+	console.log('timestamp is', ifconfigme.all.timestamp); // => timestamp is 2019-07-28T07:16:27.008Z
+
+You can refresh data by a new request to [ifconfig.me](http://ifconfig.me). Note that the module updates the timestamp of the request&nbsp;:
+
+	ifconfigme.get.then(data => console.log(`my ip is ${data.ip_addr}`, '\ntimestamp is', data.timestamp)).catch(err => console.error('oops! an error occured', err));
+	// =>	my ip is 191.17.6.11
+	//		timestamp is 2019-07-28T07:25:57.296Z
 	
 
 ## Tests ##
@@ -52,7 +61,7 @@ will generate the documentation and open its `index.html` file. It's a shortcut 
 	npm run generate-docs
 	npm run show-docs
 
-If the index.html file does not show in your browser, edit `package.json` file and see if version number should be updated in `scripts["show-docs"]`, or open file in `./docs/node-ifconfig.me/<version>/index.html` (e.g. `./docs/node-ifconfig.me/0.1.0/index.html`).
+Last command should open file `./docs/node-ifconfig.me/<version>/index.html` (e.g. `./docs/node-ifconfig.me/0.1.0/index.html`) in your browser.
 
 ## Release History ##
 
@@ -60,3 +69,12 @@ If the index.html file does not show in your browser, edit `package.json` file a
   --Sun Jul 28 01:57:48 CEST 2019
 * 0.8.1 first npm release, main module but missing tests
   --Sun Jul 28 01:45:18 CEST 2019
+
+## About me ##
+
+Please, feel free to visit my personal website [imed.ch](http://imed.ch) and have a look to IoT projects for HealthCare I am involved in with [eliiot technology](http://eliiot-technology.ch).
+
+If you use this module, please consider to buy me some cups of coffee on&nbsp;:
+
+[![click me](https://ko-fi.com/img/Kofi_Logo_Blue.svg)](https://ko-fi.com/elojes)
+
